@@ -2,14 +2,13 @@
     max-width: 358px;
     width: 100%;
     padding: 14px 0 18px 0;
-    margin-top: 48px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 1.21;
     color: #fff;
     background-color: #000;
     border: none;
     border-radius: 2px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.21;
     cursor: pointer;
 }
 .popup__button-save:hover{
@@ -19,8 +18,6 @@
 @media screen and (max-width: 900px) {
     .popup__button-save {
         max-width: 238px;
-        width: 100%;
-        margin-top: 45px;
         padding-bottom: 14px;
         font-size: 14px;
     }
