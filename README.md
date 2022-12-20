@@ -11,4 +11,4 @@
 * [*JavaScript*](https://developer.mozilla.org/ru/docs/Web/JavaScript)
 
 ## Результат
-[Здесь]() Вы можете ознакомиться с результатом.
+[Здесь](https://tanniria.github.io/mesto/) Вы можете ознакомиться с результатом.
