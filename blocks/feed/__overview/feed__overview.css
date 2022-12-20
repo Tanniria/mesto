@@ -1,6 +1,8 @@
 .feed__overview {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px 0 21px;
+    align-items: center;
+    /* padding: 0 20px 0 21px; */
+    padding: 25px 0 31px 0;
     background-color: #fff;
 }
