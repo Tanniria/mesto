@@ -7,12 +7,12 @@ let jobInput = popup.querySelector('.popup__input_value_job');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 
-function openform () {
+function openForm () {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
   popup.classList.add('popup_opened');
 }
-popupOpen.addEventListener('click', openform);
+popupOpen.addEventListener('click', openForm);
 
 function closeForm () {
   popup.classList.remove('popup_opened');
