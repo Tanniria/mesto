@@ -4,9 +4,6 @@
     display: flex;
     align-items: center;
     gap: 23px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 }
 @media screen and (max-width: 768px) {
     .profile__info {

@@ -12,62 +12,62 @@
 </head>
 <body class="page">
     <header class="header">
-        <img src="images/logo.svg" alt="Надпись Место" class="header__logo">
+        <img src="images/logo.svg" alt="Логотип с надписью Место" class="header__logo">
     </header>
     <main>
         <section class="profile">
-            <img src="images/avatar.svg" alt="Фото Жак-Ив Кусто" class="profile__avatar">
+            <img src="images/avatar.svg" alt="Фото Жак-Ив Кусто в красной шапке на фоне моря" class="profile__avatar">
             <div class="profile__form">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__button-edit"></button>
+                    <button class="profile__button-edit" type="button" aria-label="Редактировать"></button>
                 </div>
                 <p class="profile__job">Исследователь океана</p>
             </div>
-            <button type="button" class="profile__button-add"></button>
+            <button class="profile__button-add" type="button" aria-label="Добавить"></button>
         </section>
         <section class="feed">
             <ul class="feed__list">
                 <li class="feed__item">
-                    <img src="images/карачаевск.png" alt="Заброшенный храм в горах" class="feed__img">
+                    <img src="images/карачаевск.png" alt="Заброшенный кирпичный храм в горах" class="feed__img">
                     <div class="feed__overview">
                         <h2 class="feed__title">Карачаевск</h2>
-                        <button class="feed__button-like"></button>
+                        <button class="feed__button-like" type="button" aria-label="Лайк"></button>
                     </div>
                 </li>
                 <li class="feed__item">
                     <img src="images/эльбрус.png" alt="Эльбрус в рассветных лучах" class="feed__img">
                     <div class="feed__overview">
                         <h2 class="feed__title">Гора Эльбрус</h2>
-                        <button class="feed__button-like"></button>
+                        <button class="feed__button-like" type="button" aria-label="Лайк"></button>
                     </div>
                 </li>
                 <li class="feed__item">
-                    <img src="images/домбай.png" alt="Заснеженные пики Домбая" class="feed__img">
+                    <img src="images/домбай.png" alt="Заснеженные пики горы Домбай" class="feed__img">
                     <div class="feed__overview">
                         <h2 class="feed__title">Домбай</h2>
-                        <button class="feed__button-like"></button>
+                        <button class="feed__button-like" type="button" aria-label="Лайк"></button>
                     </div>
                 </li>
                 <li class="feed__item">
                     <img src="images/эльбрус.png" alt="Эльбрус в рассветных лучах" class="feed__img">
                     <div class="feed__overview">
                         <h2 class="feed__title">Гора Эльбрус</h2>
-                        <button class="feed__button-like"></button>
+                        <button class="feed__button-like" type="button" aria-label="Лайк"></button>
                     </div>
                 </li>
                 <li class="feed__item">
-                    <img src="images/домбай.png" alt="Заснеженные пики Домбая" class="feed__img">
+                    <img src="images/домбай.png" alt="Заснеженные пики горы Домбай" class="feed__img">
                     <div class="feed__overview">
                         <h2 class="feed__title">Домбай</h2>
-                        <button class="feed__button-like"></button>
+                        <button class="feed__button-like" type="button" aria-label="Лайк"></button>
                     </div>
                 </li>
                 <li class="feed__item">
-                    <img src="images/карачаевск.png" alt="Заброшенный храм в горах" class="feed__img">
+                    <img src="images/карачаевск.png" alt="Заброшенный кирпичный храм в горах" class="feed__img">
                     <div class="feed__overview">
                         <h2 class="feed__title">Карачаево-Черкессия</h2>
-                        <button class="feed__button-like"></button>
+                        <button class="feed__button-like" type="button" aria-label="Лайк"></button>
                     </div>
                 </li>
             </ul>
@@ -79,12 +79,12 @@
     <div class="popup">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form">
+            <form class="popup__form" name="popup__form" method="post">
                 <input class="popup__input popup__input_value_name" type="text" name="name" placeholder="Имя">
                 <input class="popup__input popup__input_value_job" type="text" name="job" placeholder="О себе">
-                <button class="popup__button-save" type="submit">Сохранить</button>
+                <button class="popup__button-save" type="submit" aria-label="Сохранить">Сохранить</button>
             </form>
-            <button class="popup__button-close" type="button"></button>
+            <button class="popup__button-close" type="button" aria-label="Выход"></button>
         </div>
     </div>
     <script src="./scripts/index.js"></script>
