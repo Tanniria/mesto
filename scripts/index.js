@@ -5,14 +5,14 @@ const nameInput = popupEditProfile.querySelector('.popup__input_value_name');
 const jobInput = popupEditProfile.querySelector('.popup__input_value_job');
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const buttonClosePopup = document.querySelectorAll('.popup__button-close');
+const buttonsClosePopup = document.querySelectorAll('.popup__button-close');
 const buttonSave = document.querySelector('.popup__button-save');
 
-const buttonOpenAddProfile = document.querySelector('.profile__button-add');
-const popupAddProfile = document.querySelector('.popup_add')
-const formAddProfile = document.querySelector('.popup__form_add');
-const titleInput = formAddProfile.querySelector('.popup__input_value_title');
-const linkInput = formAddProfile.querySelector('.popup__input_value_link');
+const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
+const popupAddCard = document.querySelector('.popup_add')
+const formAddCard = document.querySelector('.popup__form_add');
+const titleInput = formAddCard.querySelector('.popup__input_value_title');
+const linkInput = formAddCard.querySelector('.popup__input_value_link');
 const feedList = document.querySelector('.feed__list');
 
 const feedTemplate = document.querySelector('.feed__template').content;
@@ -27,7 +27,7 @@ function closePopup (popupElement) {
   popupElement.classList.remove('popup_opened');
 };
 
-buttonClosePopup.forEach((button) => {
+buttonsClosePopup.forEach((button) => {
   button.addEventListener('click', () => {
     closePopup(button.closest('.popup'))
   });
@@ -46,8 +46,8 @@ function submitEditProfile(evt) {
 };
 formEditProfile.addEventListener('submit', submitEditProfile);
 
-buttonOpenAddProfile.addEventListener('click', () => {
-  openPopup(popupAddProfile);
+buttonOpenAddCardPopup.addEventListener('click', () => {
+  openPopup(popupAddCard);
 });
 
 const zoomImg = (item) => {
@@ -59,7 +59,7 @@ const zoomImg = (item) => {
   });
 };
 
-const newFeed = (name, link) => {
+const createCard = (name, link) => {
   const feedElement = feedTemplate.cloneNode(true);
   const feedImg = feedElement.querySelector('.feed__img');
   const feedTitle = feedElement.querySelector('.feed__title');
@@ -82,13 +82,13 @@ const newFeed = (name, link) => {
 };
 
 initialCards.forEach((item) => {
-  feedList.append(newFeed(item.name, item.link, item.alt));
+  feedList.append(createCard(item.name, item.link, item.alt));
 });
 
-function submitAddProfile(evt) {
+function submitAddCardForm(evt) {
   evt.preventDefault();
-  feedList.prepend(newFeed(titleInput.value, linkInput.value));
+  feedList.prepend(createCard(titleInput.value, linkInput.value));
   evt.target.reset();
-  closePopup(popupAddProfile);
+  closePopup(popupAddCard);
 };
-formAddProfile.addEventListener('submit', submitAddProfile);
+formAddCard.addEventListener('submit', submitAddCardForm);
