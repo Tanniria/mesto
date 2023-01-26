@@ -1,6 +1,6 @@
 const buttonEdit = document.querySelector('.profile__button-edit');
 const closeButton = document.querySelectorAll('.popup__button-close');
-const popupEdit = document.querySelector('.popup__edit');
+const popupEdit = document.querySelector('.popup_edit');
 const formEdit = document.querySelector('.popup__form_edit');
 const nameInput = popupEdit.querySelector('.popup__input_value_name');
 const jobInput = popupEdit.querySelector('.popup__input_value_job');
@@ -9,14 +9,14 @@ const profileJob = document.querySelector('.profile__job');
 const popupSave = document.querySelector('.popup__button-save');
 
 const buttonAdd = document.querySelector('.profile__button-add');
-const popupAdd = document.querySelector('.popup__add')
+const popupAdd = document.querySelector('.popup_add')
 const formAdd = document.querySelector('.popup__form_add');
 const inputTitle = formAdd.querySelector('.popup__input_value_title');
 const inputLink = formAdd.querySelector('.popup__input_value_link');
 const feedList = document.querySelector('.feed__list');
 
 const feedTemplate = document.querySelector('.feed__template').content;
-const popupImg = document.querySelector('.popup__img');
+const popupImg = document.querySelector('.popup_img');
 const imageZoom = popupImg.querySelector('.popup__img-zoom');
 const titleZoom = popupImg.querySelector('.popup__img-title');
 
@@ -85,7 +85,7 @@ const zoomImg = (item) => {
   imageZoom.alt = item.alt;
   });
   };
-  
+
 const newFeed = (name, link) => {
   const feedElement = feedTemplate.cloneNode(true);
   const feedImg = feedElement.querySelector('.feed__img');
