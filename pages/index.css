@@ -18,6 +18,7 @@
 @import url('../blocks/feed/__title/feed__title.css');
 @import url('../blocks/feed/__img/feed__img.css');
 @import url('../blocks/feed/__button-like/feed__button-like.css');
+@import url('../blocks/feed/__button-like/_active/feed__button-like_active.css');
 @import url('../blocks/feed/__button-delete/feed__button-delete.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
@@ -27,4 +28,7 @@
 @import url('../blocks/popup/__input/popup__input.css');
 @import url('../blocks/popup/__button-save/popup__button-save.css');
 @import url('../blocks/popup/__button-close/popup__button-close.css');
+@import url('../blocks/popup/__container-img/popup__container-omg.css');
+@import url('../blocks/popup/__img-zoom/popup__img-zoom.css');
+@import url('../blocks/popup/__img-title/popup__img-title.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
