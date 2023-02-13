@@ -12,7 +12,6 @@ const formValidationConfig = {
 // };
 
 // function enableValition(formValidationConfig) {
-    
 //     const formList = Array.from(document.querySelectorAll(formValidationConfig.formSelector));
 //     formList.forEach((form) => {
 //         const buttonSaveCardForm = form.querySelector(formValidationConfig.submitButtonSelector);
