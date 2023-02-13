@@ -22,9 +22,26 @@ const titleZoom = popupImg.querySelector('.popup__img-title');
 
 function openPopup (popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closeByEscape);
+  document.addEventListener('mousedown', closeByOverlay)
 };
 function closePopup (popupElement) {
   popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeByEscape);
+  document.removeEventListener('mousedown', closeByOverlay);
+};
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  };
+};
+
+function closeByOverlay(evt) {
+  if (evt.target.classList.contains('popup_opened')) {
+    closePopup(evt.target);
+  };
 };
 
 buttonsClosePopup.forEach((button) => {
@@ -32,6 +49,21 @@ buttonsClosePopup.forEach((button) => {
     closePopup(button.closest('.popup'))
   });
 });
+
+// Очищает span'ы
+
+function removeSpanErrors(popupElement) {
+  const spanError = popupElement.querySelectorAll('.popup__input-error');
+  spanError.forEach((error) => (error.textContent = ''));
+};
+
+// Очищает бордеры
+
+function removeBorderInputs(popupElement) {
+  const borderInputs = popupElement.querySelectorAll('.popup__input');
+  borderInputs.forEach((border) => border.classLost.remove('popup__input_type_error'));
+};
+
 
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
@@ -58,6 +90,17 @@ const zoomImg = (item) => {
     imageZoom.alt = item.alt;
   });
 };
+const likeButton = (item) => {
+  item.querySelector('.feed__button-like').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('feed__button-like_active');
+  });
+};
+const deleteButton = (item) => {
+  item.querySelector('.feed__button-delete').addEventListener('click', function(evt) {
+    const feedItem = evt.target.closest('.feed__item');
+    feedItem.remove();
+  });
+};
 
 const createCard = (name, link) => {
   const feedElement = feedTemplate.cloneNode(true);
@@ -68,18 +111,13 @@ const createCard = (name, link) => {
   feedImg.src = link;
   feedTitle.textContent = name;
 
-  const likeButton = feedElement.querySelector('.feed__button-like').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('feed__button-like_active');
-  });
-  const deleteButton = feedElement.querySelector('.feed__button-delete').addEventListener('click', function(evt) {
-    const feedItem = evt.target.closest('.feed__item');
-    feedItem.remove();
-  });
-
+  likeButton(feedElement);
+  deleteButton(feedElement);
   zoomImg(feedImg);
 
   return feedElement;
 };
+
 
 initialCards.forEach((item) => {
   feedList.append(createCard(item.name, item.link, item.alt));
@@ -91,4 +129,5 @@ function submitAddCardForm(evt) {
   evt.target.reset();
   closePopup(popupAddCard);
 };
+
 formAddCard.addEventListener('submit', submitAddCardForm);
