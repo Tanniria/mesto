@@ -1,11 +1,11 @@
-// const formValidationConfig = {
-//     formSelector: '.popup__form',
-//     inputSelector: '.popup__input',
-//     submitButtonSelector: '.popup__button-save',
-//     inactiveButtonClass: 'popup__button-save_disabled',
-//     inputErrorClass: 'popup__iput_type_error',
-//     errorClass: 'popup__input-error_active',
-// };
+const formValidationConfig = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button-save',
+    inactiveButtonClass: 'popup__button-save_disabled',
+    inputErrorClass: 'popup__iput_type_error',
+    errorClass: 'popup__input-error_active',
+};
 
 // function disableSabmit(evt) {
 //     evt.preventDefault();
