@@ -7,65 +7,6 @@ const formValidationConfig = {
     errorClass: 'popup__input-error_active',
 };
 
-// function disableSabmit(evt) {
-//     evt.preventDefault();
-// };
-
-// function enableValition(formValidationConfig) {
-//     const formList = Array.from(document.querySelectorAll(formValidationConfig.formSelector));
-//     formList.forEach((form) => {
-//         const buttonSaveCardForm = form.querySelector(formValidationConfig.submitButtonSelector);
-//         form.addEventListener('submit', disableSabmit);
-//         form.addEventListener('input', (evt) => {
-//             hadleFormInput(evt, formValidationConfig);
-//             toggleButton(form, formValidationConfig, buttonSaveCardForm);
-//         });
-//         toggleButton(form, formValidationConfig, buttonSaveCardForm);
-//     });
-// };
-
-// const showInputError = (input, formValidationConfig) => {
-//     const inputId = input.id;
-//     const errorInput = document.querySelector(`#${inputId}-error`);
-//     input.classList.add(formValidationConfig.errorClass)
-//     errorInput.classList.add(formValidationConfig.inputErrorClass);
-//     errorInput.textContent = input.validationMessage;
-// };
-
-// const hideInputError = (input, formValidationConfig) => {
-//     const inputId = input.id;
-//     const errorInput = document.querySelector(`#${inputId}-error`);
-//     input.classList.remove(formValidationConfig.errorClass)
-//     errorInput.classList.remove(formValidationConfig.inputErrorClass);
-//     errorInput.textContent = '';
-
-// };
-
-// function hadleFormInput(evt, formValidationConfig) {
-//     const input = evt.target;
-
-//     if (input.validity.valid) {
-//         hideInputError(input, formValidationConfig);
-//     } else {
-//         showInputError(input, formValidationConfig);
-//     };
-// };
-
-
-// function toggleButton(form, formValidationConfig, buttonSaveCardForm) {
-    
-//     const isFormValid = form.checkValidity();
-    
-//     buttonSaveCardForm.disabled = !isFormValid;
-//     buttonSaveCardForm.classList.toggle(formValidationConfig.inactiveButtonClass, !isFormValid);
-
-// };
-// enableValition(formValidationConfig);
-
-
-
-// 2 решение
-
 const showInputError = (formElement, inputElement, inputErrorClass, errorClass, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.name}-error`);
     
