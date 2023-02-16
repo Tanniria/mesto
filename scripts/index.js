@@ -23,7 +23,7 @@ const titleZoom = popupImg.querySelector('.popup__img-title');
 function openPopup (popupElement) {
   popupElement.classList.add('popup_opened');
   document.addEventListener('keydown', closeByEscape);
-  document.addEventListener('mousedown', closeByOverlay)
+  document.addEventListener('mousedown', closeByOverlay);
 };
 function closePopup (popupElement) {
   popupElement.classList.remove('popup_opened');
@@ -50,26 +50,12 @@ buttonsClosePopup.forEach((button) => {
   });
 });
 
-// Очищает span'ы
-
-function removeSpanErrors(popupElement) {
-  const spanError = popupElement.querySelectorAll('.popup__input-error');
-  spanError.forEach((error) => (error.textContent = ''));
-};
-
-// Очищает бордеры
-
-function removeBorderInputs(popupElement) {
-  const borderInputs = popupElement.querySelectorAll('.popup__input');
-  borderInputs.forEach((border) => border.classLost.remove('popup__input_type_error'));
-};
-
-
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 });
+
 function submitEditProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
@@ -117,7 +103,6 @@ const createCard = (name, link) => {
 
   return feedElement;
 };
-
 
 initialCards.forEach((item) => {
   feedList.append(createCard(item.name, item.link, item.alt));
