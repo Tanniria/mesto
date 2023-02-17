@@ -50,10 +50,22 @@ buttonsClosePopup.forEach((button) => {
   });
 });
 
+const resetValidation = (formElement, formValidationConfig) => {
+
+  const inputList = Array.from(formElement.querySelectorAll(formValidationConfig.inputSelector));
+  const buttonElement = formElement.querySelector(formValidationConfig.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, formValidationConfig);
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, formValidationConfig);
+  });
+
+};
+
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  resetValidation(popupEditProfile, formValidationConfig);
 });
 
 function submitEditProfile(evt) {
@@ -66,6 +78,7 @@ formEditProfile.addEventListener('submit', submitEditProfile);
 
 buttonOpenAddCardPopup.addEventListener('click', () => {
   openPopup(popupAddCard);
+  resetValidation(popupAddCard, formValidationConfig);
 });
 
 const zoomImg = (item) => {

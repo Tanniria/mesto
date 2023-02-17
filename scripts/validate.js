@@ -34,14 +34,23 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
+// const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
+//   if (hasInvalidInput(inputList)) {
+//     buttonElement.classList.add(inactiveButtonClass);
+//     buttonElement.setAttribute('disabled', true);
+//   } else {
+//     buttonElement.classList.remove(inactiveButtonClass);
+//     buttonElement.removeAttribute('disabled');
+//   };
+// };
+const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(inactiveButtonClass);
-    buttonElement.setAttribute('disabled', true);
+    buttonElement.classList.add(formValidationConfig.inactiveButtonClass);
+    buttonElement.disabled = true;
   } else {
-    buttonElement.classList.remove(inactiveButtonClass);
-    buttonElement.removeAttribute('disabled');
-  };
+    buttonElement.classList.remove(formValidationConfig.inactiveButtonClass);
+    buttonElement.disabled = false;
+  }
 };
 
 const setEventListeners = (formElement, formValidationConfig) => {
