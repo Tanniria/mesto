@@ -50,15 +50,13 @@ buttonsClosePopup.forEach((button) => {
   });
 });
 
-const resetValidation = (formElement, formValidationConfig) => {
-
-  const inputList = Array.from(formElement.querySelectorAll(formValidationConfig.inputSelector));
-  const buttonElement = formElement.querySelector(formValidationConfig.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, formValidationConfig);
+const resetValidation = (formElement, config) => {
+  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, config);
   inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, formValidationConfig);
+    hideInputError(formElement, inputElement, config);
   });
-
 };
 
 buttonOpenEditProfile.addEventListener('click', () => {
