@@ -22,6 +22,21 @@ export class Card {
         return cardElement;
     };
 
+    _likeButton(buttonLike) {
+        buttonLike.target.classList.toggle('feed__button-like_active');
+    };
+    _deleteButton() {
+        this._card.remove();
+        this._card = null;
+    };
+
+    _setEventListeners() {
+        this._buttonLike.addEventListener('click', this._likeButton);
+        this._buttonDelete.addEventListener('click', () => this._deleteButton());
+        this._cardImg.addEventListener('click', () => {
+        this._handleCardClick(this._name, this._link);
+        });
+    };
     generateCard() {
         this._cardImg.alt = this._name;
         this._cardImg.src = this._link;
@@ -30,21 +45,5 @@ export class Card {
         this._setEventListeners();
 
         return this._card;
-    };
-
-    _likeButton(buttonLike) {
-        buttonLike.target.classList.toggle('feed__button-like_active');
-    };
-    _deleteButton() {
-        this._card.remove();
-        this._card = null;
-    }
-
-    _setEventListeners() {
-        this._buttonLike.addEventListener('click', this._likeButton);
-        this._buttonDelete.addEventListener('click', this._deleteButton);
-        this._cardImg.addEventListener('click', () => {
-            this._handleCardClick(this._name, this._link);
-        });
     };
 };
