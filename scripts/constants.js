@@ -1,3 +1,11 @@
+const formValidationConfig = {
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button-save',
+  inactiveButtonClass: 'popup__button-save_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active',
+};
+
 const initialCards = [
     {
       name: 'Каолиновый карьер',
@@ -24,3 +32,5 @@ const initialCards = [
       link: 'https://moya-planeta.ru/upload/images/xl/65/ed/65ed66361008d56ad066b5ac32080f058d507896.jpg'
     }
   ];
+  
+export { initialCards, formValidationConfig };

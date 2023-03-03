@@ -1,3 +1,8 @@
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+import {initialCards, formValidationConfig} from "./constants.js";
+
+// Попап - редактирование профиля
 const buttonOpenEditProfile = document.querySelector('.profile__button-edit');
 const popupEditProfile = document.querySelector('.popup_edit');
 const formEditProfile = document.querySelector('.popup__form_edit');
@@ -7,15 +12,14 @@ const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
 const buttonsClosePopup = document.querySelectorAll('.popup__button-close');
 const buttonSave = document.querySelector('.popup__button-save');
-
+// Попап - добавление новой карточки
 const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
-const popupAddCard = document.querySelector('.popup_add')
+const popupAddCard = document.querySelector('.popup_add');
 const formAddCard = document.querySelector('.popup__form_add');
 const titleInput = formAddCard.querySelector('.popup__input_value_title');
 const linkInput = formAddCard.querySelector('.popup__input_value_link');
 const feedList = document.querySelector('.feed__list');
-
-const feedTemplate = document.querySelector('.feed__template').content;
+// Попап - увеличение картинки
 const popupImg = document.querySelector('.popup_img');
 const imageZoom = popupImg.querySelector('.popup__img-zoom');
 const titleZoom = popupImg.querySelector('.popup__img-title');
@@ -25,6 +29,7 @@ function openPopup (popupElement) {
   document.addEventListener('keydown', closeByEscape);
   document.addEventListener('mousedown', closeByOverlay);
 };
+
 function closePopup (popupElement) {
   popupElement.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEscape);
@@ -50,22 +55,6 @@ buttonsClosePopup.forEach((button) => {
   });
 });
 
-const resetValidation = (formElement, config) => {
-  const inputList = Array.from(formElement.querySelectorAll(config.inputSelector));
-  const buttonElement = formElement.querySelector(config.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, config);
-  inputList.forEach((inputElement) => {
-    hideInputError(formElement, inputElement, config);
-  });
-};
-
-buttonOpenEditProfile.addEventListener('click', () => {
-  openPopup(popupEditProfile);
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  resetValidation(popupEditProfile, formValidationConfig);
-});
-
 function submitEditProfile(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
@@ -74,56 +63,46 @@ function submitEditProfile(evt) {
 };
 formEditProfile.addEventListener('submit', submitEditProfile);
 
+const EditProfileValidation = new FormValidator(formValidationConfig, formEditProfile);
+EditProfileValidation.enableValidation();
+
+const AddCardValidation = new FormValidator(formValidationConfig, formAddCard);
+AddCardValidation.enableValidation();
+
+buttonOpenEditProfile.addEventListener('click', () => {
+  openPopup(popupEditProfile);
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
+  EditProfileValidation.resetValidation();
+});
+
 buttonOpenAddCardPopup.addEventListener('click', () => {
   openPopup(popupAddCard);
-  resetValidation(popupAddCard, formValidationConfig);
+  AddCardValidation.resetValidation();
 });
 
-const zoomImg = (item) => {
-  item.addEventListener('click', (evt) => {
-    openPopup(popupImg);
-    titleZoom.textContent = evt.target.closest('.feed__item').textContent;
-    imageZoom.src = item.src;
-    imageZoom.alt = item.alt;
-  });
-};
-const likeButton = (item) => {
-  item.querySelector('.feed__button-like').addEventListener('click', function(evt) {
-    evt.target.classList.toggle('feed__button-like_active');
-  });
-};
-const deleteButton = (item) => {
-  item.querySelector('.feed__button-delete').addEventListener('click', function(evt) {
-    const feedItem = evt.target.closest('.feed__item');
-    feedItem.remove();
-  });
+function ZoomImg(name, link) {
+  imageZoom.src = link;
+  imageZoom.alt = name;
+  titleZoom.textContent = name;
+  openPopup(popupImg);
 };
 
-const createCard = (name, link) => {
-  const feedElement = feedTemplate.cloneNode(true);
-  const feedImg = feedElement.querySelector('.feed__img');
-  const feedTitle = feedElement.querySelector('.feed__title');
-
-  feedImg.alt = name;
-  feedImg.src = link;
-  feedTitle.textContent = name;
-
-  likeButton(feedElement);
-  deleteButton(feedElement);
-  zoomImg(feedImg);
-
-  return feedElement;
+function createCard(name, link, handleCardClick) {
+  const newCard = new Card({name, link}, '#feed__template', handleCardClick);
+  return newCard.generateCard();
 };
 
-initialCards.forEach((item) => {
-  feedList.append(createCard(item.name, item.link, item.alt));
-});
+function renderCard(name, link, handleCardClick) {
+  feedList.prepend(createCard(name, link, handleCardClick));
+};
+
+initialCards.forEach(card => renderCard(card.name, card.link, ZoomImg));
 
 function submitAddCardForm(evt) {
   evt.preventDefault();
-  feedList.prepend(createCard(titleInput.value, linkInput.value));
+  renderCard(titleInput.value, linkInput.value, ZoomImg);
   evt.target.reset();
   closePopup(popupAddCard);
 };
-
 formAddCard.addEventListener('submit', submitAddCardForm);
