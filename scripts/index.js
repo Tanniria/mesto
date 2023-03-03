@@ -63,22 +63,22 @@ function submitEditProfile(evt) {
 };
 formEditProfile.addEventListener('submit', submitEditProfile);
 
-const EditProfileValidation = new FormValidator(formValidationConfig, formEditProfile);
-EditProfileValidation.enableValidation();
+const editProfileValidation = new FormValidator(formValidationConfig, formEditProfile);
+editProfileValidation.enableValidation();
 
-const AddCardValidation = new FormValidator(formValidationConfig, formAddCard);
-AddCardValidation.enableValidation();
+const addCardValidation = new FormValidator(formValidationConfig, formAddCard);
+addCardValidation.enableValidation();
 
 buttonOpenEditProfile.addEventListener('click', () => {
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  EditProfileValidation.resetValidation();
+  editProfileValidation.resetValidation();
 });
 
 buttonOpenAddCardPopup.addEventListener('click', () => {
   openPopup(popupAddCard);
-  AddCardValidation.resetValidation();
+  addCardValidation.resetValidation();
 });
 
 function ZoomImg(name, link) {
