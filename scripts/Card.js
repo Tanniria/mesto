@@ -22,8 +22,8 @@ export class Card {
         return cardElement;
     };
 
-    _likeButton(buttonLike) {
-        buttonLike.target.classList.toggle('feed__button-like_active');
+    _likeButton() {
+        this._buttonLike.classList.toggle('feed__button-like_active');
     };
     _deleteButton() {
         this._card.remove();
@@ -31,10 +31,10 @@ export class Card {
     };
 
     _setEventListeners() {
-        this._buttonLike.addEventListener('click', this._likeButton);
+        this._buttonLike.addEventListener('click', () => this._likeButton());
         this._buttonDelete.addEventListener('click', () => this._deleteButton());
         this._cardImg.addEventListener('click', () => {
-        this._handleCardClick(this._name, this._link);
+            this._handleCardClick(this._name, this._link);
         });
     };
     generateCard() {
