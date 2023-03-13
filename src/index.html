@@ -7,16 +7,15 @@
     <meta name="description" content="Социальная сеть Место для выкладывания фотографий">
     <meta name="keywords" content="Социальная сеть, фото, профиль">
     <meta name="author" content="Смакова Татьяна">
-    <link href="./pages/index.css" rel="stylesheet">
     <title>Социальная сеть "Место"</title>
 </head>
 <body class="page">
     <header class="header">
-        <img src="images/logo.svg" alt="Логотип с надписью Место" class="header__logo">
+        <img src="<%=require('./images/logo.svg')%>" alt="Логотип с надписью Место" class="header__logo">
     </header>
     <main class="main">
         <section class="profile">
-            <img src="images/avatar.svg" alt="Фото Жак-Ив Кусто в красной шапке на фоне моря" class="profile__avatar">
+            <img src="<%=require('./images/avatar.svg')%>" alt="Фото Жак-Ив Кусто в красной шапке на фоне моря" class="profile__avatar"> 
             <div class="profile__form">
                 <div class="profile__info">
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -44,7 +43,7 @@
                 type="text"
                 minlength="2"
                 maxlength="40"
-                name="name"
+                name="edit_input_name"
                 placeholder="Имя">
                 <span class="popup__input-error" id="name__input-error"></span>
                 <input 
@@ -54,7 +53,7 @@
                 type="text"
                 minlength="2"
                 maxlength="200"
-                name="job"
+                name="edit_input_job"
                 placeholder="О себе">
                 <span class="popup__input-error" id="job__input-error"></span>
                 <button class="popup__button-save" type="submit" aria-label="Сохранить">Сохранить</button>
@@ -73,7 +72,7 @@
                 type="text"
                 minlength="2"
                 maxlength="30"
-                name="name"
+                name="input_name"
                 placeholder="Название">
                 <span class="popup__input-error" id="title__input-error"></span>
                 <input 
@@ -81,7 +80,7 @@
                 class="popup__input popup__input_value_link"
                 id="link__input"
                 type="url" 
-                name="link" 
+                name="input_link" 
                 placeholder="Ссылка на картинку">
                 <span class="popup__input-error" id="link__input-error"></span>
                 <button class="popup__button-save" type="submit" aria-label="Создать">Создать</button>
@@ -101,11 +100,10 @@
             <button class="feed__button-delete"></button>
             <img class="feed__img" src="#" alt="">
             <div class="feed__overview">
-                <h2 class="feed__title">Карачаевск</h2>
+                <h2 class="feed__title"></h2>
                 <button class="feed__button-like" type="button" aria-label="Лайк"></button>
             </div>
         </li>
     </template>
-    <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

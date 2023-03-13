@@ -3,13 +3,7 @@ export class Card {
         this._name = card.name;
         this._link = card.link;
         this._templateSelector = templateSelector;
-        this._handleCardClick = handleCardClick;
-
-        this._card = this._getTemplate();
-        this._buttonLike = this._card.querySelector('.feed__button-like');
-        this._buttonDelete = this._card.querySelector('.feed__button-delete');
-        this._cardImg = this._card.querySelector('.feed__img');
-        this._cardTitle = this._card.querySelector('.feed__title');
+        this._handleCardClick = handleCardClick; 
     };
 
     _getTemplate() {
@@ -38,6 +32,12 @@ export class Card {
         });
     };
     generateCard() {
+        this._card = this._getTemplate();
+        this._buttonLike = this._card.querySelector('.feed__button-like');
+        this._buttonDelete = this._card.querySelector('.feed__button-delete');
+        this._cardImg = this._card.querySelector('.feed__img');
+        this._cardTitle = this._card.querySelector('.feed__title');
+
         this._cardImg.alt = this._name;
         this._cardImg.src = this._link;
         this._cardTitle.textContent = this._name;
