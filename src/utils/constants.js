@@ -6,6 +6,15 @@ const formValidationConfig = {
   errorClass: 'popup__input-error_active',
 };
 
+const buttonOpenEditProfile = document.querySelector('.profile__button-edit');
+const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
+
+const formEditProfile = document.querySelector('.popup__form_edit');
+const formAddCard = document.querySelector('.popup__form_add');
+
+const nameInput = document.querySelector('.popup__input_value_name');
+const jobInput = document.querySelector('.popup__input_value_job');
+
 const initialCards = [
     {
       name: 'Каолиновый карьер',
@@ -33,4 +42,4 @@ const initialCards = [
     }
   ];
   
-export { initialCards, formValidationConfig };
+export { initialCards, formValidationConfig, buttonOpenEditProfile, buttonOpenAddCardPopup, formEditProfile, formAddCard, nameInput, jobInput };

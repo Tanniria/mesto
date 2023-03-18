@@ -19,6 +19,7 @@ export class Card {
     _likeButton() {
         this._buttonLike.classList.toggle('feed__button-like_active');
     };
+
     _deleteButton() {
         this._card.remove();
         this._card = null;
@@ -31,6 +32,7 @@ export class Card {
             this._handleCardClick(this._name, this._link);
         });
     };
+    
     generateCard() {
         this._card = this._getTemplate();
         this._buttonLike = this._card.querySelector('.feed__button-like');

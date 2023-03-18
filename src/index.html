@@ -32,6 +32,16 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2023 Mesto Russia</p>
     </footer>
+    <template id="feed__template">
+        <li class="feed__item">
+            <button class="feed__button-delete"></button>
+            <img class="feed__img" src="#" alt="">
+            <div class="feed__overview">
+                <h2 class="feed__title"></h2>
+                <button class="feed__button-like" type="button" aria-label="Лайк"></button>
+            </div>
+        </li>
+    </template>
     <div class="popup popup_edit">
         <div class="popup__container">
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -95,15 +105,5 @@
             <button class="popup__button-close"></button>
         </div>
     </div>
-    <template id="feed__template">
-        <li class="feed__item">
-            <button class="feed__button-delete"></button>
-            <img class="feed__img" src="#" alt="">
-            <div class="feed__overview">
-                <h2 class="feed__title"></h2>
-                <button class="feed__button-like" type="button" aria-label="Лайк"></button>
-            </div>
-        </li>
-    </template>
 </body>
 </html>
