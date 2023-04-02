@@ -26,6 +26,10 @@ export class PopupWithForm extends Popup {
         });
     };
 
+    renderLoading(text) {
+        this._buttonSubmit.textContent = text;
+      }
+
     close() {
         super.close();
         this._popupForm.reset();
