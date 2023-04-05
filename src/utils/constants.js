@@ -6,20 +6,6 @@ const formValidationConfig = {
   errorClass: 'popup__input-error_active',
 };
 
-const buttonOpenEditProfile = document.querySelector('.profile__button-edit');
-const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
-
-const formEditProfile = document.querySelector('.popup__form_edit');
-const formAddCard = document.querySelector('.popup__form_add');
-const formEditAvatar = document.querySelector('.popup__form_avatar');
-
-const nameInput = document.querySelector('.popup__input_value_name');
-const jobInput = document.querySelector('.popup__input_value_job');
-
-
-const buttonOpenEditAvatar = document.querySelector('.profile__button-avatar');
-
-
 const initialCards = [
     {
       name: 'Каолиновый карьер',
@@ -46,16 +32,32 @@ const initialCards = [
       link: 'https://moya-planeta.ru/upload/images/xl/65/ed/65ed66361008d56ad066b5ac32080f058d507896.jpg'
     }
   ];
-  
+
+const buttonOpenEditProfile = document.querySelector('.profile__button-edit');
+const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
+
+const formEditProfile = document.querySelector('.popup__form_edit');
+const formAddCard = document.querySelector('.popup__form_add');
+const formEditAvatar = document.querySelector('.popup__form_avatar');
+
+const nameInput = document.querySelector('.popup__input_value_name');
+const jobInput = document.querySelector('.popup__input_value_job');
+
+const buttonOpenEditAvatar = document.querySelector('.profile__button-avatar');
+const inputAvatar = document.querySelector('.popup__input_value_avatar');
+const userAvatar = document.querySelector('.profile__avatar');
+
 export { 
-  initialCards, 
-  formValidationConfig, 
-  buttonOpenEditProfile, 
+  initialCards,
+  formValidationConfig,
+  buttonOpenEditProfile,
   buttonOpenAddCardPopup,
   buttonOpenEditAvatar,
-  formEditProfile, 
-  formAddCard, 
+  formEditProfile,
+  formAddCard,
   formEditAvatar,
-  nameInput, 
-  jobInput, 
+  nameInput,
+  jobInput,
+  inputAvatar,
+  userAvatar,
  };
