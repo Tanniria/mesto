@@ -13,7 +13,7 @@ export class Api {
 
     getInitialCards() {
         return fetch(`${this._url}/cards`, {
-            // method: 'GET',
+            method: 'GET',
             headers: this._headers,
         })
         .then((res) => this._checkResponse(res));
@@ -21,7 +21,7 @@ export class Api {
 
     getUserInfo() {
         return fetch(`${this._url}/users/me`, {
-            // method: 'GET',
+            method: 'GET',
             headers: this._headers,
         })
         .then((res) => this._checkResponse(res))
@@ -44,7 +44,6 @@ export class Api {
             method: 'POST',
             headers: this._headers,
             'Content-Type': 'application/json',
-
             body: JSON.stringify({
                 name: data.name,
                 link: data.link,
@@ -81,7 +80,7 @@ export class Api {
     };
 
     editAvatar(data) {
-        return fetch(`${this._baseURL}/users/me/avatar`, {
+        return fetch(`${this._url}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({

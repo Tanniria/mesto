@@ -35,6 +35,7 @@ const initialCards = [
 
 const buttonOpenEditProfile = document.querySelector('.profile__button-edit');
 const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
+const buttonOpenEditAvatar = document.querySelector('.profile__button-avatar');
 
 const formEditProfile = document.querySelector('.popup__form_edit');
 const formAddCard = document.querySelector('.popup__form_add');
@@ -42,8 +43,6 @@ const formEditAvatar = document.querySelector('.popup__form_avatar');
 
 const nameInput = document.querySelector('.popup__input_value_name');
 const jobInput = document.querySelector('.popup__input_value_job');
-
-const buttonOpenEditAvatar = document.querySelector('.profile__button-avatar');
 const inputAvatar = document.querySelector('.popup__input_value_avatar');
 const userAvatar = document.querySelector('.profile__avatar');
 
@@ -57,7 +56,5 @@ export {
   formAddCard,
   formEditAvatar,
   nameInput,
-  jobInput,
-  inputAvatar,
-  userAvatar,
+  jobInput
  };

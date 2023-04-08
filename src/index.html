@@ -41,11 +41,13 @@
     <template id="feed__template">
         <li class="feed__item">
             <button class="feed__button-delete"></button>
-            <img class="feed__img" src="#" alt="">
+            <img class="feed__img" src="#" alt="Название места">
             <div class="feed__overview">
                 <h2 class="feed__title"></h2>
-                <button class="feed__button-like" type="button" aria-label="Лайк"></button>
-                <p class="card__like-counter"></p>
+                <div class="feed__like-container">
+                    <button class="feed__button-like" type="button" aria-label="Лайк"></button>
+                    <p class="feed__like-counter"></p>
+                </div>
             </div>
         </li>
     </template>
@@ -112,10 +114,11 @@
                 <input 
                 required
                 class="popup__input popup__input_value_avatar"
+                id ="avatar__input"
                 name="avatar"
                 type="url"
                 placeholder="Введите ссылку">
-                <span class="popup__input-error" id="error-avatar"></span>
+                <span class="popup__input-error" id="avatar__input-error"></span>
                 <button class="popup__button-save" type="submit">Сохранить</button>
             </form>
             <button class="popup__button-close" type="button" aria-label="Выход"></button>
