@@ -22,7 +22,7 @@
 @import url('../blocks/feed/__button-like/feed__button-like.css');
 @import url('../blocks/feed/__button-like/_active/feed__button-like_active.css');
 @import url('../blocks/feed/__like-container/feed__like-container.css');
-@import url('../blocks/feed/__like-counter/feed__like-counter.css'); 
+@import url('../blocks/feed/__like-counter/feed__like-counter.css');
 @import url('../blocks/feed/__button-delete/feed__button-delete.css');
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__copyright/footer__copyright.css');
