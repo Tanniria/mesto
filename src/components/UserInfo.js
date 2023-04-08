@@ -13,9 +13,9 @@ export class UserInfo {
         };
     };
     
-    setUserInfo({ name, job}) {
+    setUserInfo({ name, about}) {
         this._profileName.textContent = name;
-        this._profileJob.textContent = job;
+        this._profileJob.textContent = about;
     };
 
     setUserAvatar(url) {

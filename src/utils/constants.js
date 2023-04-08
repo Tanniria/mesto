@@ -43,11 +43,11 @@ const formEditAvatar = document.querySelector('.popup__form_avatar');
 
 const nameInput = document.querySelector('.popup__input_value_name');
 const jobInput = document.querySelector('.popup__input_value_job');
-const inputAvatar = document.querySelector('.popup__input_value_avatar');
-const userAvatar = document.querySelector('.profile__avatar');
+// const inputAvatar = document.querySelector('.popup__input_value_avatar');
+// const userAvatar = document.querySelector('.profile__avatar');
 
 export { 
-  initialCards,
+  // initialCards,
   formValidationConfig,
   buttonOpenEditProfile,
   buttonOpenAddCardPopup,

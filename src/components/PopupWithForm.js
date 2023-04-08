@@ -18,12 +18,13 @@ export class PopupWithForm extends Popup {
         return this._formValues;
     };
 
-    // setInputValues(data) {
-    //     this._inputList.forEach(input => {
-    //         input.value = data [input.name];
-    //     });
-    // };
-
+    loadingData(isLoading, textLoading = 'Сохранение...') {
+        if(isLoading) {
+            this._buttonSave.textContent = textLoading;
+        } else {
+            this._buttonSave.textContent = this._buttonSaveText;
+        };
+    };
     setEventListeners() {
         super.setEventListeners();
         this._popupForm.addEventListener('submit', (evt) => {
@@ -31,14 +32,6 @@ export class PopupWithForm extends Popup {
             this._handleFormSubmit(this._getInputValues());
             this.close();
         });
-    };
-
-    loading(isLoading, textLoading = 'Сохранение...') {
-        if(isLoading) {
-            this._buttonSave.textContent = textLoading;
-        } else {
-            this._buttonSave.textContent = this._buttonSaveText;
-        };
     };
 
     close() {

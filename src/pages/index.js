@@ -8,7 +8,6 @@ import { Section } from '../components/Section.js';
 import { UserInfo } from '../components/UserInfo.js';
 import { Api } from '../components/Api';
 import {
-  initialCards,
   formValidationConfig,
   buttonOpenEditProfile,
   buttonOpenAddCardPopup,
@@ -89,13 +88,14 @@ const createCard = (data) => {
       }
     },
   });
+
   return newCard.generateCard(data);
 }
 
 const popupAddCards = new PopupWithForm({
   popupSelector: '.popup_add',
   handleFormSubmit: (data) => {
-    popupAddCards.loading(true);
+    popupAddCards.loadingData(true);
     api.addCard({
       name: data.name,
       link: data.link,
@@ -108,7 +108,7 @@ const popupAddCards = new PopupWithForm({
       console.log(`Ошибка: ${err}`)
     })
     .finally(() => {
-      popupAddCards.loading(false);
+      popupAddCards.loadingData(false);
     })
   }
 });
@@ -116,7 +116,7 @@ const popupAddCards = new PopupWithForm({
 const popupEditProfile = new PopupWithForm({
   popupSelector: '.popup_edit',
   handleFormSubmit: (data) => {
-    popupEditProfile.loading(true);
+    popupEditProfile.loadingData(true);
     api.editUserInfo(data)
     .then((res) => {
       user.setUserInfo(res);
@@ -126,7 +126,7 @@ const popupEditProfile = new PopupWithForm({
       console.log(`Ошибка: ${err}`)
     })
     .finally(() => {
-      popupEditProfile.loading(false);
+      popupEditProfile.loadingData(false);
     })
   }
 });
@@ -134,7 +134,7 @@ const popupEditProfile = new PopupWithForm({
 const popupEditAvatar = new PopupWithForm({
   popupSelector: '.popup_edit-avatar',
   handleFormSubmit: (data) => {
-    popupEditAvatar.loading(true);
+    popupEditAvatar.loadingData(true);
     api.editAvatar(data)
     .then((res) => {
       user.setUserAvatar(res);
@@ -144,14 +144,15 @@ const popupEditAvatar = new PopupWithForm({
       console.log(`Ошибка: ${err}`)
     })
     .finally(() => {
-      popupEditAvatar.loading(false);
+      popupEditAvatar.loadingData(false);
     });
   }
 });
 
 const cardsContainer = new Section({
   renderer: createCard
-}, '.feed__list');
+}, 
+'.feed__list');
 
 function handleCardClick(name, link) {
   popupImg.open(name, link);
@@ -161,7 +162,7 @@ const popupImg = new PopupWithImage('.popup_img');
 const popupDeleteCard = new PopupWithSubmit({
   popupSelector: '.popup_delete-card',
   handleFormSubmit: (newCard, userId) => {
-    popupDeleteCard.loading(true);
+    popupDeleteCard.loadingData(true);
     api.deleteCard(userId)
       .then((res) => {
         newCard.deleteCard();
@@ -171,7 +172,7 @@ const popupDeleteCard = new PopupWithSubmit({
         console.log(`Ошибка: ${err}`)
       })
       .finally(() => {
-        popupDeleteCard.loading(false);
+        popupDeleteCard.loadingData(false);
       })
   }
 })
@@ -187,7 +188,6 @@ editAvatarValidation.enableValidation();
 
 buttonOpenEditProfile.addEventListener('click', () => {
   popupEditProfile.open();
-  // popupEditProfile.setInputValues(user.getUserInfo());
   const userInfo = user.getUserInfo(); 
   nameInput.value = userInfo.name; 
   jobInput.value = userInfo.job; 
